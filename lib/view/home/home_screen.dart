@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 buildHaberler(0),
-                buildHaberler(0),
+                buildHaberler(1),
                 buildHaberler(0),
                 buildHaberler(0),
               ],
@@ -150,27 +150,32 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Card buildHaberler(int index) {
-    return Card(
-      child: Row(
-        children: [
-          Image.network(
-            haberList[0].imageUrl,
-            width: 150,
-            height: 150,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Flexible(
-              child: Text(
-            haberList[0].aciklama,
-            textAlign: TextAlign.justify,
-          )),
-          SizedBox(
-            width: 10,
-          ),
-        ],
+  Container buildHaberler(int index) {
+    return Container(
+      height: 200,
+      decoration: ,
+      child: Card(
+        elevation: 4.0,
+        child: Row(
+          children: [
+            Image.network(
+              haberList[index].imageUrl,
+              width: 150,
+              height: 150,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Flexible(
+                child: Text(
+              haberList[index].aciklama,
+              textAlign: TextAlign.justify,
+            )),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
       ),
     );
   }
