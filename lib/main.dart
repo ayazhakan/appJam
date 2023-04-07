@@ -1,7 +1,9 @@
+import 'package:akademi_mobil/view/home/home_screen.dart';
+import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'view/home/home_screen.dart';
+import 'view/program/program_screen.dart';
 
 void main() {
   runApp(const MyApp());
