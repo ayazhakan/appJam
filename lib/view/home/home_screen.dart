@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'package:akademi_mobil/constants/color.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/haber_duyuru_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,8 +14,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double startDegreeOffset = 180;
-  bool _switchValue = false;
-  String _switchText = 'Switch is OFF';
   int isSelected = 0;
   List egitimList = ["Teknik", "Coursera", "Girişimcilik", "İngilizce"];
   int haberDuyuru = 0;
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Anasayfa"),
+        backgroundColor: mavi,
       ),
       body: ListView(
         children: [
@@ -49,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: isSelected == index
-                                      ? Colors.red
+                                      ? kirmizi
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -97,7 +99,8 @@ class _HomePageState extends State<HomePage> {
                           });
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                           decoration: BoxDecoration(
                             color: haberDuyuru == 0
                                 ? Colors.greenAccent
@@ -118,7 +121,8 @@ class _HomePageState extends State<HomePage> {
                           });
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                           decoration: BoxDecoration(
                             color: haberDuyuru == 1
                                 ? Colors.greenAccent
@@ -134,8 +138,37 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+                buildHaberler(0),
+                buildHaberler(0),
+                buildHaberler(0),
+                buildHaberler(0),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Card buildHaberler(int index) {
+    return Card(
+      child: Row(
+        children: [
+          Image.network(
+            haberList[0].imageUrl,
+            width: 150,
+            height: 150,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Flexible(
+              child: Text(
+            haberList[0].aciklama,
+            textAlign: TextAlign.justify,
+          )),
+          SizedBox(
+            width: 10,
           ),
         ],
       ),
@@ -150,24 +183,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  PieChartData _pieChartData = PieChartData(
-    sections: [
-      PieChartSectionData(
-        value: 25,
-        title: '25%',
-        color: Colors.red,
-      ),
-      PieChartSectionData(
-        value: 75,
-        title: '75%',
-        color: Colors.green,
-      ),
-    ],
-    sectionsSpace: 2,
-    centerSpaceRadius: 32,
-    startDegreeOffset: 180,
-  );
-
   Duration _animationDuration = Duration(milliseconds: 5000);
 
   PieChart buildGraph() {
@@ -178,12 +193,12 @@ class _HomePageState extends State<HomePage> {
           PieChartSectionData(
             value: 25,
             title: '25%',
-            color: Colors.red,
+            color: kirmizi,
           ),
           PieChartSectionData(
             value: 75,
             title: '75%',
-            color: Colors.green,
+            color: yesil,
           ),
         ],
         sectionsSpace: 2,
