@@ -153,7 +153,6 @@ class _HomePageState extends State<HomePage> {
   Container buildHaberler(int index) {
     return Container(
       height: 200,
-      decoration: ,
       child: Card(
         elevation: 4.0,
         child: Row(
