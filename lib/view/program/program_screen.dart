@@ -1,8 +1,10 @@
 
+import 'package:akademi_mobil/view/program/programs.dart';
 import 'package:flutter/material.dart';
 
 import 'add_program.dart';
 import 'programIcerik.dart';
+import 'programs.dart';
 
 
 
@@ -15,72 +17,9 @@ class ProgramPage extends StatefulWidget {
   @override
   State<ProgramPage> createState() => _ProgramPageState();
 
-
-
 }
 
 class _ProgramPageState extends State<ProgramPage> {
-
-  List<ProgramIcerik> birinciProgram=[
-  ProgramIcerik(
-  gun: "Pazartesi",
-  baslangic: "18:00",
-  bitis: "20:00",
-  ders: "Flutter"
-  ),ProgramIcerik(
-        gun: "Pazartesi",
-        baslangic: "20:00",
-        bitis: "22:00",
-        ders: "İngilizce"
-    ),
-    ProgramIcerik(
-        gun: "Salı",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Proje Yönetimi"
-    ),
-    ProgramIcerik(
-        gun: "Salı",
-        baslangic: "20:00",
-        bitis: "21:00",
-        ders: "Flutter"
-    ),
-    ProgramIcerik(
-        gun: "Çarşamba",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Flutter"
-    ),ProgramIcerik(
-        gun: "Çarşamba",
-        baslangic: "20:00",
-        bitis: "22:00",
-        ders: "İngilizce"
-    ),
-    ProgramIcerik(
-        gun: "Perşembe",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Proje Yönetimi"
-    ),
-    ProgramIcerik(
-        gun: "Perşembe",
-        baslangic: "20:00",
-        bitis: "21:00",
-        ders: "Flutter"
-    ),ProgramIcerik(
-        gun: "Cuma",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Proje Yönetimi"
-    ),
-    ProgramIcerik(
-        gun: "Cuma",
-        baslangic: "20:00",
-        bitis: "21:00",
-        ders: "Flutter"
-    ),
-  ];
-
 
 
   @override
@@ -98,42 +37,21 @@ class _ProgramPageState extends State<ProgramPage> {
       },
     )
         ,
-     body: new Container(
-
-          child:  DataTable(
-              columnSpacing: 30.0,
-              columns: [
-                DataColumn(
-                  label: Text('Gün'),
-                ),
-                DataColumn(
-                  label: Text('Başlangıç'),
-                ),
-                DataColumn(
-                  label: Text('Bitiş'),
-                ),
-                DataColumn(
-                  label: Text('Ders'),
-                ),
-              ],
-
-
-              rows:[
-
-                for(var program in birinciProgram)
-
-                DataRow(cells:
-              [  DataCell(Text(program.gun)),
-
-                DataCell(Text(program.baslangic)),
-
-                DataCell(Text(program.bitis)),
-
-                DataCell(Text(program.ders)),
-              ]),
-
-              ])
-      ),
+     body: Row(
+       children: [
+         Text("Birinci Program"),
+         ElevatedButton(onPressed: (){
+           Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => const Programs()));
+         }, child: const Text("Git!")),
+         ElevatedButton.icon(icon: Icon(Icons.delete), style: ElevatedButton.styleFrom(
+           primary: Colors.red, // Background color
+         ),onPressed: (){}, label:Text(" Sil!")),
+         ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
+             primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
+       ],
+     ),
     );
   }
 }

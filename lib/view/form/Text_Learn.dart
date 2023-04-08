@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'Dimensions.dart';
+
+
 TextStyle TitleTextStyle() {
   return TextStyle(
-    letterSpacing: 3,
-    fontSize: 30,
+    letterSpacing: 2,
+    fontSize: Dimensions.font20,
     fontWeight: FontWeight.w800,
     color: Colors.white
   );
