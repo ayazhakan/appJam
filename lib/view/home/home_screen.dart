@@ -98,6 +98,7 @@ class _HomePageState extends State<HomePage> {
                             "Nisan",
                             style: TextStyle(fontSize: 20),
                           ),
+                          Spacer(),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
@@ -105,6 +106,14 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(fontSize: 18),
                                 textAlign: TextAlign.center),
                           ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Spacer(),
+                          Text("Son Gün: 30 Nisan"),
+                          SizedBox(
+                            height: 15,
+                          )
                         ],
                       ))
                     ],
