@@ -3,6 +3,7 @@ import 'package:akademi_mobil/view/form/form_screen.dart';
 import 'package:akademi_mobil/view/home/home_screen.dart';
 import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:akademi_mobil/view/program/program_screen.dart';
+import 'package:akademi_mobil/view/tree_view/tree_screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,7 @@ class BottomNavBarPage extends StatefulWidget {
 }
 
 var bottomNavIndex = 0.obs;
-List pageListVana = [HomePage(), ProfilePage(), ProgramPage(), FormPage()];
+List pageListVana = [HomePage(), TreePage(), ProgramPage(), FormPage()];
 
 class _BottomNavBarPageState extends State<BottomNavBarPage> {
   @override
