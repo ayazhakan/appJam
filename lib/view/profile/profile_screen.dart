@@ -102,6 +102,8 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: 20),
           Row(
+
+            
             children: [
               SizedBox(width: 25),
               Icon(Icons.language),
