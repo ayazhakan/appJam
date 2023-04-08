@@ -1,6 +1,11 @@
+import 'package:akademi_mobil/view/form/form_screen.dart';
+import 'package:akademi_mobil/view/home/home_screen.dart';
+import 'package:akademi_mobil/view/login/login.dart';
+import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'view/login/login.dart';
 import 'view/program/program_screen.dart';
 
 void main() {
@@ -14,10 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Akademi Mobil',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ProgramPage(),
+      home: LoginPage(),
     );
   }
 }

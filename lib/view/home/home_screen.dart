@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:akademi_mobil/constants/color.dart';
+import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constants/haber_duyuru_list.dart';
 
@@ -17,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   int isSelected = 0;
   List egitimList = ["Teknik", "Coursera", "Girişimcilik", "İngilizce"];
   int haberDuyuru = 0;
+  List<double> bitirmeYuzdesiList = [68, 46, 32, 93];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Anasayfa"),
-        backgroundColor: mavi,
+        actions: [IconButton(onPressed: () {
+          Get.to(ProfilePage());
+        }, icon: const Icon(Icons.person))],
+        backgroundColor: kAppBarColor,
       ),
       body: ListView(
         children: [
@@ -48,22 +54,28 @@ class _HomePageState extends State<HomePage> {
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: isSelected == index
-                                      ? kirmizi
-                                      : Colors.transparent,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    egitimList[index],
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        color: isSelected == index
-                                            ? Colors.white
-                                            : Colors.black),
+                                elevation: 2.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: isSelected == index
+                                        ? yesil
+                                        : Colors.transparent,
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      egitimList[index],
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: isSelected == index
+                                              ? Colors.white
+                                              : Colors.black),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -81,7 +93,34 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: [
                       Expanded(child: buildGraph()),
-                      Expanded(child: Text("Bitirme Yüzdesi"))
+                      Expanded(
+                          child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Nisan",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                                "${egitimList[isSelected]} Eğitimi Tamamlama Oranı",
+                                style: TextStyle(fontSize: 18),
+                                textAlign: TextAlign.center),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Spacer(),
+                          Text("Son Gün: 30 Nisan"),
+                          SizedBox(
+                            height: 15,
+                          )
+                        ],
+                      ))
                     ],
                   ),
                 ),
@@ -140,8 +179,14 @@ class _HomePageState extends State<HomePage> {
                 ),
                 buildHaberler(0),
                 buildHaberler(1),
-                buildHaberler(0),
-                buildHaberler(0),
+                buildHaberler(2),
+                buildHaberler(3),
+                buildHaberler(4),
+                buildHaberler(5),
+                buildHaberler(6),
+                buildHaberler(7),
+                buildHaberler(8),
+                buildHaberler(9),
               ],
             ),
           ),
@@ -153,7 +198,6 @@ class _HomePageState extends State<HomePage> {
   Container buildHaberler(int index) {
     return Container(
       height: 200,
-      decoration: ,
       child: Card(
         elevation: 4.0,
         child: Row(
@@ -181,14 +225,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void startDegreeOffsetTimer() {
-    Timer.periodic(Duration(milliseconds: 10000), (_) {
+    Timer.periodic(Duration(milliseconds: 500), (_) {
       setState(() {
         startDegreeOffset++;
       });
     });
   }
 
-  Duration _animationDuration = Duration(milliseconds: 5000);
+  final Duration _animationDuration = const Duration(milliseconds: 500);
 
   PieChart buildGraph() {
     return PieChart(
@@ -196,13 +240,13 @@ class _HomePageState extends State<HomePage> {
       PieChartData(
         sections: [
           PieChartSectionData(
-            value: 25,
-            title: '25%',
+            value: (100 - bitirmeYuzdesiList[isSelected]),
+            title: (100 - bitirmeYuzdesiList[isSelected]).toString(),
             color: kirmizi,
           ),
           PieChartSectionData(
-            value: 75,
-            title: '75%',
+            value: bitirmeYuzdesiList[isSelected],
+            title: bitirmeYuzdesiList[isSelected].toString(),
             color: yesil,
           ),
         ],
