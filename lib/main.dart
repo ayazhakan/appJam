@@ -5,6 +5,7 @@ import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'view/login/login.dart';
 import 'view/program/program_screen.dart';
 
 void main() {
@@ -21,9 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
- 
-      home: const LoginPage(),
-
+      home: LoginPage(),
     );
   }
 }
