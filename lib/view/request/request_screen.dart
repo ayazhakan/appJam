@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RequestPage extends StatefulWidget {
   const RequestPage({Key? key}) : super(key: key);
@@ -8,8 +9,6 @@ class RequestPage extends StatefulWidget {
 }
 
 class _RequestPageState extends State<RequestPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,19 @@ class _RequestPageState extends State<RequestPage> {
       ),
       body: ListView(
         ///todo: talepler ekranı - akademi ekbiyle iletişim vb.
+        children: [
+          Container(
+            height: Get.height * 0.09,
+            child: Card(
+              elevation: 4.0,
+              child: Row(
+                children: [
 
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
