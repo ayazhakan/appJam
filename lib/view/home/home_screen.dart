@@ -88,7 +88,25 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: [
                       Expanded(child: buildGraph()),
-                      Expanded(child: Text("Bitirme Yüzdesi"))
+                      Expanded(
+                          child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Nisan",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                                "${egitimList[isSelected]} Eğitimi Tamamlama Oranı",
+                                style: TextStyle(fontSize: 18),
+                                textAlign: TextAlign.center),
+                          ),
+                        ],
+                      ))
                     ],
                   ),
                 ),
@@ -149,6 +167,12 @@ class _HomePageState extends State<HomePage> {
                 buildHaberler(1),
                 buildHaberler(2),
                 buildHaberler(3),
+                buildHaberler(4),
+                buildHaberler(5),
+                buildHaberler(6),
+                buildHaberler(7),
+                buildHaberler(8),
+                buildHaberler(9),
               ],
             ),
           ),

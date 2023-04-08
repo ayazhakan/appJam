@@ -27,13 +27,14 @@ List haberList = [
     "Atıl Samancıoğlu ile Jam söyleşisi",
     "Oyun ve Uygulama Akademisi danışmanımız @atilsamancioglu ve bursiyerlerimiz ile Akademi'de Bootcamp, GameJam, AppJam, Github ve çok daha fazlasını konuşmak için instagram canlı yayınında bir araya geliyoruz!",
   ),
+  /*
   Haber(
-    "https://instagram.fesb10-4.fna.fbcdn.net/v/t51.2885-15/306916029_1214275649370499_5726152607936254256_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fesb10-4.fna.fbcdn.net&_nc_cat=107&_nc_ohc=WoV6jFTVDZgAX_PwbUY&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjkyOTIwNjg4MTAwNjIxODE1MA%3D%3D.2-ccb7-5&oh=00_AfBTkCIZaaCapBhA1WOTFY9PjlHT8KbB9dprLE3TN00FPQ&oe=64369EE5&_nc_sid=30a2ef"    "Başlık",
+    "https://scontent.cdninstagram.com/v/t51.2885-15/299909867_1688021148234483_2814459059991618348_n.jpg?stp=dst-jpg_e35&_nc_ht=scontent.cdninstagram.com&_nc_cat=103&_nc_ohc=6bwolKeR5bQAX-TP-V_&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjkwODI5NzIwNDM4NTE0NjI4NQ%3D%3D.2-ccb7-5&oh=00_AfBYxjjSAh3TXDigjlrBIbRqOSc2zWl-iKhfLna7tYHi0Q&oe=6435DE73&_nc_sid=978cb9",
     "Neden Oyun ve Uygulama Akademisi?",
     "Oyun ve Uygulama Akademisi'nin ikinci yılı için başvuru süreci başladı! Google Türkiye, T.C. Sanayi ve Teknoloji Bakanlığı ve T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi destekleriyle Girişimcilik Vakfı ve T3 Girişim Merkezi iş birliğinde hayata geçirilen Oyun ve Uygulama Akademisi ile dijital ekonominin büyümesine, 18-29 yaş arası gençlerin dijital becerilerinin gelişmesine, teknoloji sektöründe istihdamın artmasına ve teknoloji odaklı girişimlerin çoğalmasına katkı sağlamayı hedefliyoruz. Oyun ve Uygulama Geliştirme Eğitimleri, Proje Yönetimi, Teknoloji Girişimciliği, Networking, Oyun Sanatı, Yazılımcılar için İngilizce, Sosyal Beceriler Eğitimleri, Kariyer Zirveleri, App&Game Jam'i ve Bootcamp gibi 450 saat eğitim ve etkinlikten oluşan 7 aylık program ile kariyerini teknoloji sektöründe tasarla. Başvurular başladı! ⏰Unutma son başvuru tarihi 16 Ekim!",
-  ),
+  ),*/
   Haber(
-    "https://instagram.fesb10-4.fna.fbcdn.net/v/t51.2885-15/299909867_1688021148234483_2814459059991618348_n.jpg?stp=dst-jpg_e35_p720x720&_nc_ht=instagram.fesb10-4.fna.fbcdn.net&_nc_cat=103&_nc_ohc=6bwolKeR5bQAX-tpFwf&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjkwODI5NzIwNDM4NTE0NjI4NQ%3D%3D.2-ccb7-5&oh=00_AfBtlr_ZavjhO2FOd9EWv_ZOlPDT5JnbnMCAtQ3XGhYMmQ&oe=6435DE73&_nc_sid=30a2ef 720w,https://instagram.fesb10-4.fna.fbcdn.net/v/t51.2885-15/299909867_1688021148234483_2814459059991618348_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=instagram.fesb10-4.fna.fbcdn.net&_nc_cat=103&_nc_ohc=6bwolKeR5bQAX-tpFwf&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjkwODI5NzIwNDM4NTE0NjI4NQ%3D%3D.2-ccb7-5&oh=00_AfBbpX3E8HsvFsQ1NOxDClNFFsffPLBYlCP1Qj_tWhmsvQ&oe=6435DE73&_nc_sid=30a2ef 640w",
+    "https://scontent.cdninstagram.com/v/t51.2885-15/299909867_1688021148234483_2814459059991618348_n.jpg?stp=dst-jpg_e35&_nc_ht=scontent.cdninstagram.com&_nc_cat=103&_nc_ohc=6bwolKeR5bQAX-TP-V_&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjkwODI5NzIwNDM4NTE0NjI4NQ%3D%3D.2-ccb7-5&oh=00_AfBYxjjSAh3TXDigjlrBIbRqOSc2zWl-iKhfLna7tYHi0Q&oe=6435DE73&_nc_sid=978cb9",
     "Eğitmenlerimize Teşekkürler",
     "Bu yıl 2000 bursiyerimize eğitim veren, değerli katkılarıyla Oyun ve Uygulama Akademisi’nde yer alan sevgili eğitmenlerimize çok teşekkürler!",
   ),
@@ -73,5 +74,17 @@ List haberList = [
     "https://instagram.fesb10-4.fna.fbcdn.net/v/t51.2885-15/275310491_5836599913020859_885747431006591628_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fesb10-4.fna.fbcdn.net&_nc_cat=107&_nc_ohc=H7m95XJE6QMAX-CXSCz&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjc4OTM1NDgwNzYwMjM0NjI0MQ%3D%3D.2-ccb7-5&oh=00_AfB01Dy5EDuV4q46raiLlLJr5PCqvDls3LDHKuwrOWPfvg&oe=64355510&_nc_sid=30a2ef",
     "Akademi Kadın Yazılımcıların Yanında",
     "Oyun ve Uygulama Akademisi bursiyerlerinin %50'sini oluşturan kadınların teknoloji sektörüne ilgi duyan nice kadınlara ilham olmasını ümit ediyor, Türkiye'de kadın geliştirici ve girişimci sayısının artmasını destekliyoruz.",
+  ),
+];
+
+class Duyuru {
+  Duyuru(this.baslik);
+
+  String baslik;
+}
+
+List<Duyuru> duyuruList = [
+  Duyuru(
+    ""
   ),
 ];
