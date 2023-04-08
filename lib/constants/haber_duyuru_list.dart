@@ -114,5 +114,5 @@ List<Duyuru> duyuruList = [
   Duyuru(
       "Ideathon Başvuruları Başladı."
   ),
-  
+
 ];
