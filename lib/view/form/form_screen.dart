@@ -72,8 +72,7 @@ class _FormPageState extends State<FormPage> {
     return Padding(
                  padding:  EdgeInsets.all(Dimensions.padding8),
                  child: SizedBox(
-                   height: Dimensions.height200,
-                   width: Dimensions.height800,
+                   width: double.maxFinite,
                    child:TextButton(
                      onPressed: () {
                        Get.to(Detail_Page());
@@ -119,7 +118,7 @@ class _FormPageState extends State<FormPage> {
                                    Text("Anketin konusu",style: buildTextStyle2(),),
                                  ],
                                 ),
-                                 const SizedBox(width:18),
+                                 SizedBox(width:Dimensions.padding16),
                                  ElevatedButton(
                                      onPressed: () => setState(() {
                                        formList[index]=true;
