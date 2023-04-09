@@ -1,3 +1,4 @@
+import 'package:akademi_mobil/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
@@ -8,10 +9,49 @@ class TreePage extends StatefulWidget {
   State<TreePage> createState() => _TreePageState();
 }
 
-class _TreePageState extends State<TreePage> {
+class _TreePageState extends State<TreePage>
+    with SingleTickerProviderStateMixin {
+  AnimationController? _controller;
   StateMachineController? controller;
   SMIInput<double>? inputValue;
   double valueSlider = 0;
+  double egitimYuzdesi = 83;
+
+  @override
+  void initState() {
+    _animateValueSlider();
+    super.initState();
+  }
+
+  void _animateValueSlider() async {
+    double startValue = 0;
+    double endValue = 83;
+    Duration duration = Duration(seconds: 5);
+
+    await Future.delayed(Duration(milliseconds: 3000));
+
+    AnimationController controller =
+        AnimationController(duration: duration, vsync: this);
+    Animation<double> animation =
+        Tween<double>(begin: startValue, end: endValue).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    animation.addListener(() {
+      setState(() {
+        valueSlider = animation.value;
+      });
+    });
+
+    controller.forward();
+
+    setState(() {
+      valueSlider = endValue;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +68,33 @@ class _TreePageState extends State<TreePage> {
                 "State Machine 1",
               );
 
-              if(controller != null) {
+              if (controller != null) {
                 artboard.addController(controller!);
                 inputValue = controller?.findInput("input");
-                inputValue?.change(1);
+                inputValue?.change(50);
               }
             },
           ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Tebrikler ağacınız büyümesi %83",
+                      style: TextStyle(fontSize: 18, color: yesil),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 35),
+            ],
+          )
+          /*
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -59,6 +119,7 @@ class _TreePageState extends State<TreePage> {
               ),
             ],
           ),
+          */
         ],
       ),
     );
