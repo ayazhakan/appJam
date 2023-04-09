@@ -14,10 +14,11 @@ class FormPage extends StatefulWidget {
   @override
   State<FormPage> createState() => _FormPageState();
 }
+List formList=[false,false,false,false,false,false,false,false,false,false,].obs;
 
 class _FormPageState extends State<FormPage> {
   bool _isLoading = false;
-  List formList=[false,false,false,false,false,false,false,false,false,false,];
+
   List formName=["Akademi Başvuru","Ideathon","APP Jam","Game Jam","Etkinlik Başvuru 1","Etkinlik Başvuru 2","Bootcamp Başvuru","Alan Başvuru","İngilizce Ders","Hediye Başvuru"];
   var titletext="FORMLAR";
   @override
@@ -75,7 +76,10 @@ class _FormPageState extends State<FormPage> {
                    width: double.maxFinite,
                    child:TextButton(
                      onPressed: () {
-                       Get.to(Detail_Page());
+                       Get.to(Detail_Page(index: index));
+                       setState(() {
+                         formList[index] = true;
+                       });
                      },
                      child: Card(
                        color: Colors.white,
