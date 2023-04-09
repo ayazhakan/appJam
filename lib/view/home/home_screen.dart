@@ -126,7 +126,18 @@ class _HomePageState extends State<HomePage> {
                             height: 20,
                           ),
                           Spacer(),
-                          Text("Son Gün: 30 Nisan"),
+                          Card(
+                            color: Colors.greenAccent,
+                            elevation: 0.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              side: BorderSide(color: kirmizi, width: 2),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("Son Gün: 30 Nisan"),
+                            ),
+                          ),
                           SizedBox(
                             height: 15,
                           )
@@ -211,6 +222,16 @@ class _HomePageState extends State<HomePage> {
       height: 200,
       child: Card(
         elevation: 4.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+          side: BorderSide(color: index % 4 == 0
+              ? kirmizi
+              : index % 4 == 1
+              ? yesil
+              : index % 4 == 2
+              ? sari
+              : mavi, width: 2),
+        ),
         child: Row(
           children: [
             _isLoading == true
@@ -240,10 +261,13 @@ class _HomePageState extends State<HomePage> {
               width: 10,
             ),
             Flexible(
-                child: Text(
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Text(
               haberList[index].aciklama,
               textAlign: TextAlign.justify,
-            )),
+            ),
+                )),
             SizedBox(
               width: 10,
             ),
