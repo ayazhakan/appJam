@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 var showAlert = false;
+
 class _HomePageState extends State<HomePage> {
   double startDegreeOffset = 180;
   int isSelected = 0;
@@ -32,8 +33,11 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _loadImage();
-    showAlert == false ? WidgetsBinding.instance.addPostFrameCallback((_) => showRatingDialog(context)) : null;
-    showAlert=true;
+    showAlert == false
+        ? WidgetsBinding.instance
+            .addPostFrameCallback((_) => showRatingDialog(context))
+        : null;
+    showAlert = true;
   }
 
   void showRatingDialog(BuildContext context) {
@@ -160,6 +164,7 @@ class _HomePageState extends State<HomePage> {
                         );
                       }),
                 ),
+                SizedBox(height: 8),
                 Container(
                   height: 200,
                   decoration: BoxDecoration(
@@ -284,7 +289,7 @@ class _HomePageState extends State<HomePage> {
 
   buildHaberler(int index) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Get.to(HaberDetayPage(index: index));
       },
       child: Container(
@@ -358,7 +363,7 @@ class _HomePageState extends State<HomePage> {
 
   buildDuyurular(int index) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         bottomNavIndex.value = 3;
       },
       child: Padding(

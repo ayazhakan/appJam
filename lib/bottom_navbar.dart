@@ -31,7 +31,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
               child: FloatingActionButton(
                 splashColor: Colors.black,
                 backgroundColor: kAppBarColor,
-                child: Icon(Icons.home_filled), //Icon(Icons.looks_6_rounded),
+                child: Icon(Icons.accessibility_new_outlined, size: 30,), //Icon(Icons.looks_6_rounded),
                 onPressed: () {
                   bottomNavIndex.value = 0;
                   Get.offAll(HomePage());
