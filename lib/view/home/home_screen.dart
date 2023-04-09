@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:akademi_mobil/constants/color.dart';
+import 'package:akademi_mobil/view/home/haber_detay_screen.dart';
 import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 import '../../constants/haber_duyuru_list.dart';
@@ -27,6 +29,66 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _loadImage();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => showRatingDialog(context));
+  }
+
+  void showRatingDialog(BuildContext context) {
+    double rating = 3;
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Bu Hafta Akademide Kendinizi Nasıl Hissediyorsunuz :)"),
+          content: RatingBar.builder(
+            initialRating: 3,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              switch (index) {
+                case 0:
+                  return Icon(
+                    Icons.sentiment_very_dissatisfied,
+                    color: Colors.red,
+                  );
+                case 1:
+                  return Icon(
+                    Icons.sentiment_dissatisfied,
+                    color: Colors.redAccent,
+                  );
+                case 2:
+                  return Icon(
+                    Icons.sentiment_neutral,
+                    color: Colors.amber,
+                  );
+                case 3:
+                  return Icon(
+                    Icons.sentiment_satisfied,
+                    color: Colors.lightGreen,
+                  );
+                case 4:
+                  return Icon(
+                    Icons.sentiment_very_satisfied,
+                    color: Colors.green,
+                  );
+                default:
+                  return Container();
+              }
+            },
+            onRatingUpdate: (rating) {
+              print(rating);
+            },
+          ),
+          actions: [
+            TextButton(
+              child: Text("Gönder"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -217,61 +279,68 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container buildHaberler(int index) {
-    return Container(
-      height: 200,
-      child: Card(
-        elevation: 4.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-          side: BorderSide(color: index % 4 == 0
-              ? kirmizi
-              : index % 4 == 1
-              ? yesil
-              : index % 4 == 2
-              ? sari
-              : mavi, width: 2),
-        ),
-        child: Row(
-          children: [
-            _isLoading == true
-                ? Image.asset(
-                    "assets/haber/haber${(index + 1).toString()}.jpg",
-                    height: 150,
-                    width: 150,
-                  )
-                : Container(
-                    height: 150,
-                    width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(45.0),
-                      child: CircularProgressIndicator(
-                        strokeWidth: 10,
-                        color: index % 4 == 0
-                            ? kirmizi
-                            : index % 4 == 1
-                                ? yesil
-                                : index % 4 == 2
-                                    ? sari
-                                    : mavi,
+  buildHaberler(int index) {
+    return GestureDetector(
+      onTap: (){
+        Get.to(HaberDetayPage(index: index));
+      },
+      child: Container(
+        height: 200,
+        child: Card(
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+            side: BorderSide(
+                color: index % 4 == 0
+                    ? kirmizi
+                    : index % 4 == 1
+                        ? yesil
+                        : index % 4 == 2
+                            ? sari
+                            : mavi,
+                width: 2),
+          ),
+          child: Row(
+            children: [
+              _isLoading == true
+                  ? Image.asset(
+                      "assets/haber/haber${(index + 1).toString()}.jpg",
+                      height: 150,
+                      width: 150,
+                    )
+                  : Container(
+                      height: 150,
+                      width: 150,
+                      child: Padding(
+                        padding: const EdgeInsets.all(45.0),
+                        child: CircularProgressIndicator(
+                          strokeWidth: 10,
+                          color: index % 4 == 0
+                              ? kirmizi
+                              : index % 4 == 1
+                                  ? yesil
+                                  : index % 4 == 2
+                                      ? sari
+                                      : mavi,
+                        ),
                       ),
                     ),
-                  ),
-            SizedBox(
-              width: 10,
-            ),
-            Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Text(
-              haberList[index].aciklama,
-              textAlign: TextAlign.justify,
-            ),
-                )),
-            SizedBox(
-              width: 10,
-            ),
-          ],
+              SizedBox(
+                width: 10,
+              ),
+              Flexible(
+                  child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Text(
+                  haberList[index].aciklama,
+                  textAlign: TextAlign.justify,
+                ),
+              )),
+              SizedBox(
+                width: 10,
+              ),
+            ],
+          ),
         ),
       ),
     );
