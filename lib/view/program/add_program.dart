@@ -1,18 +1,29 @@
 
+import 'package:akademi_mobil/view/program/programIcerik.dart';
 import 'package:flutter/material.dart';
 
 
-final _formKey = GlobalKey<FormState>();
+
+List<ProgramIcerik> _icerik=[];
+
 class AddProgram extends StatefulWidget {
 
   const AddProgram({Key? key}) : super(key: key);
 
   @override
   State<AddProgram> createState() =>_AddProgram();
+
+
 }
 
 class _AddProgram extends State<AddProgram> {
+  late  String gun;
+  late  String baslangic;
+  late  String bitis;
+  late  String ders;
 
+  ProgramIcerik icerik=ProgramIcerik(baslangic: "baslangic", bitis: "bitis", ders: "ders", gun: "gun");
+  final _formKey = GlobalKey<FormState>();
 
 
   @override
@@ -33,46 +44,55 @@ class _AddProgram extends State<AddProgram> {
       ),
     );
   }
+   _form() => Container(
+     color:Colors.white,
+     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+     child: Form(
+       key: _formKey,
+       child: Column(
+         children: <Widget>[
+
+          TextFormField(decoration: InputDecoration(labelText: "Gün giriniz")
+            ,onSaved: (val)=> setState(()=>icerik.gun=val!)),
+           TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz XX:XX")
+             ,onSaved: (val)=> setState(()=>icerik.baslangic=val!),
+             validator: (val)=>(val?.length==0 ?"bu alanı boş bırakamasınız":null),),
+           TextFormField(decoration: InputDecoration(labelText: "Bitiş saati giriniz XX:XX")
+             ,onSaved: (val)=> setState(()=>icerik.bitis=val!),
+             validator: (val)=>(val?.length==0 ?"bu alanı boş bırakamasınız":null),),
+           TextFormField(decoration: InputDecoration(labelText: "Ders adı giriniz")
+             ,onSaved: (val)=> setState(()=>icerik.ders=val!),
+             validator: (val)=>(val?.length==0 ?"bu alanı boş bırakamasınız":null),),
+
+           Container(
+             margin: EdgeInsets.all(10.0),
+             child: FloatingActionButton(onPressed: ()=>_onSubmit(),child: Text("Onayla"),
+
+
+             ),
+           )
+         ],
+       ),
+     ),
+   );
+
+   _onSubmit() {
+     var form=_formKey.currentState;
+     if(form!.validate()){
+       form.save();
+setState(() {
+      _icerik.add(icerik);
+});
+form.reset();
+
+
+     }
+
+   }
+
+
 }
 
-_form() => Container(
-  color:Colors.white,
-  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-  child: Form(
-    key: _formKey,
-    child: Column(
-      children: <Widget>[
-
-        Text("Pazartesi"),
-        TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz XX:XX")),
-        TextFormField(decoration: InputDecoration(labelText: "Bitiş saati giriniz XX:XX")),
-        TextFormField(decoration: InputDecoration(labelText: "Ders adı giriniz")),
-        Text("Salı"),
-        TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Bitiş saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Ders adı giriniz")),
-        Text("Çarşamba"),
-        TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Bitiş saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Ders adı giriniz")),
-        Text("Perşembe"),
-        TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Bitiş saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Ders adı giriniz")),
-        Text("Cuma"),
-        TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Bitiş saati giriniz")),
-        TextFormField(decoration: InputDecoration(labelText: "Ders adı giriniz")),
-        Container(
-          margin: EdgeInsets.all(10.0),
-          child: FloatingActionButton(onPressed: (){
-
-          },child: Text("Onayla"),
 
 
-          ),
-        )
-      ],
-    ),
-  ),
-);
+

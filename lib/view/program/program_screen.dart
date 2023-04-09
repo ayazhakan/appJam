@@ -37,21 +37,27 @@ class _ProgramPageState extends State<ProgramPage> {
       },
     )
         ,
-     body: Row(
+
+
+     body: Column(
        children: [
-         Text("Birinci Program"),
-         ElevatedButton(onPressed: (){
-           Navigator.push(
-               context,
-               MaterialPageRoute(builder: (context) => const Programs()));
-         }, child: const Text("Git!")),
-         ElevatedButton.icon(icon: Icon(Icons.delete), style: ElevatedButton.styleFrom(
-           primary: Colors.red, // Background color
-         ),onPressed: (){}, label:Text(" Sil!")),
-         ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
-             primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
+         Row(
+           children: [
+             Text("Birinci Program"),
+             ElevatedButton(onPressed: (){
+               Navigator.push(
+                   context,
+                   MaterialPageRoute(builder: (context) => const Programs()));
+             }, child: const Text("Git!")),
+             ElevatedButton.icon(icon: Icon(Icons.delete), style: ElevatedButton.styleFrom(
+               primary: Colors.red, // Background color
+             ),onPressed: (){}, label:Text(" Sil!")),
+             ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
+                 primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
+           ],
+         ),
        ],
-     ),
+     )
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:akademi_mobil/constants/color.dart';
 import 'package:akademi_mobil/view/profile/profile_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,16 +21,26 @@ class _HomePageState extends State<HomePage> {
   List egitimList = ["Teknik", "Coursera", "Girişimcilik", "İngilizce"];
   int haberDuyuru = 0;
   List<double> bitirmeYuzdesiList = [68, 46, 32, 93];
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadImage();
+  }
 
   @override
   Widget build(BuildContext context) {
-    startDegreeOffsetTimer();
     return Scaffold(
       appBar: AppBar(
         title: Text("Anasayfa"),
-        actions: [IconButton(onPressed: () {
-          Get.to(ProfilePage());
-        }, icon: const Icon(Icons.person))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(ProfilePage());
+              },
+              icon: const Icon(Icons.person))
+        ],
         backgroundColor: kAppBarColor,
       ),
       body: ListView(
@@ -115,7 +126,18 @@ class _HomePageState extends State<HomePage> {
                             height: 20,
                           ),
                           Spacer(),
-                          Text("Son Gün: 30 Nisan"),
+                          Card(
+                            color: Colors.greenAccent,
+                            elevation: 0.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              side: BorderSide(color: kirmizi, width: 2),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("Son Gün: 30 Nisan"),
+                            ),
+                          ),
                           SizedBox(
                             height: 15,
                           )
@@ -177,16 +199,16 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                buildHaberler(0),
-                buildHaberler(1),
-                buildHaberler(2),
-                buildHaberler(3),
-                buildHaberler(4),
-                buildHaberler(5),
-                buildHaberler(6),
-                buildHaberler(7),
-                buildHaberler(8),
-                buildHaberler(9),
+                haberDuyuru == 0 ? buildHaberler(0) : buildDuyurular(0),
+                haberDuyuru == 0 ? buildHaberler(1) : buildDuyurular(1),
+                haberDuyuru == 0 ? buildHaberler(2) : buildDuyurular(2),
+                haberDuyuru == 0 ? buildHaberler(3) : buildDuyurular(3),
+                haberDuyuru == 0 ? buildHaberler(4) : buildDuyurular(4),
+                haberDuyuru == 0 ? buildHaberler(5) : buildDuyurular(5),
+                haberDuyuru == 0 ? buildHaberler(6) : buildDuyurular(6),
+                haberDuyuru == 0 ? buildHaberler(7) : buildDuyurular(7),
+                haberDuyuru == 0 ? buildHaberler(8) : buildDuyurular(8),
+                haberDuyuru == 0 ? buildHaberler(9) : buildDuyurular(9),
               ],
             ),
           ),
@@ -200,21 +222,52 @@ class _HomePageState extends State<HomePage> {
       height: 200,
       child: Card(
         elevation: 4.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+          side: BorderSide(color: index % 4 == 0
+              ? kirmizi
+              : index % 4 == 1
+              ? yesil
+              : index % 4 == 2
+              ? sari
+              : mavi, width: 2),
+        ),
         child: Row(
           children: [
-            Image.network(
-              haberList[index].imageUrl,
-              width: 150,
-              height: 150,
-            ),
+            _isLoading == true
+                ? Image.asset(
+                    "assets/haber/haber${(index + 1).toString()}.jpg",
+                    height: 150,
+                    width: 150,
+                  )
+                : Container(
+                    height: 150,
+                    width: 150,
+                    child: Padding(
+                      padding: const EdgeInsets.all(45.0),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 10,
+                        color: index % 4 == 0
+                            ? kirmizi
+                            : index % 4 == 1
+                                ? yesil
+                                : index % 4 == 2
+                                    ? sari
+                                    : mavi,
+                      ),
+                    ),
+                  ),
             SizedBox(
               width: 10,
             ),
             Flexible(
-                child: Text(
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Text(
               haberList[index].aciklama,
               textAlign: TextAlign.justify,
-            )),
+            ),
+                )),
             SizedBox(
               width: 10,
             ),
@@ -224,12 +277,49 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void startDegreeOffsetTimer() {
-    Timer.periodic(Duration(milliseconds: 500), (_) {
-      setState(() {
-        startDegreeOffset++;
-      });
+  Future<void> _loadImage() async {
+    await Future.delayed(Duration(milliseconds: 1300)).then((value) => () {});
+    setState(() {
+      _isLoading = true;
     });
+  }
+
+  buildDuyurular(int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 150,
+        color: index % 4 == 0
+            ? kirmizi
+            : index % 4 == 1
+                ? yesil
+                : index % 4 == 2
+                    ? sari
+                    : mavi,
+        child: Card(
+          elevation: 4.0,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("assets/megafon.png", height: 100),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Flexible(
+                  child: Text(
+                duyuruList[index].baslik,
+                textAlign: TextAlign.center,
+              )),
+              SizedBox(
+                width: 10,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   final Duration _animationDuration = const Duration(milliseconds: 500);
