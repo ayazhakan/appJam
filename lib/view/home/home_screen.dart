@@ -4,6 +4,7 @@ import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 import '../../constants/haber_duyuru_list.dart';
@@ -27,6 +28,66 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _loadImage();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => showRatingDialog(context));
+  }
+
+  void showRatingDialog(BuildContext context) {
+    double rating = 3;
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Bu Hafta Akademide Kendinizi Nasıl Hissediyorsunuz :)"),
+          content: RatingBar.builder(
+            initialRating: 3,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              switch (index) {
+                case 0:
+                  return Icon(
+                    Icons.sentiment_very_dissatisfied,
+                    color: Colors.red,
+                  );
+                case 1:
+                  return Icon(
+                    Icons.sentiment_dissatisfied,
+                    color: Colors.redAccent,
+                  );
+                case 2:
+                  return Icon(
+                    Icons.sentiment_neutral,
+                    color: Colors.amber,
+                  );
+                case 3:
+                  return Icon(
+                    Icons.sentiment_satisfied,
+                    color: Colors.lightGreen,
+                  );
+                case 4:
+                  return Icon(
+                    Icons.sentiment_very_satisfied,
+                    color: Colors.green,
+                  );
+                default:
+                  return Container();
+              }
+            },
+            onRatingUpdate: (rating) {
+              print(rating);
+            },
+          ),
+          actions: [
+            TextButton(
+              child: Text("Gönder"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
