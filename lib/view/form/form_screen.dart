@@ -16,7 +16,7 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  bool _isLoading = true;
+  bool _isLoading = false;
   List formList=[false,false,false,false,false,false,false,false,false,false,];
   List formName=["Akademi Başvuru","Ideathon","APP Jam","Game Jam","Etkinlik Başvuru 1","Etkinlik Başvuru 2","Bootcamp Başvuru","Alan Başvuru","İngilizce Ders","Hediye Başvuru"];
   var titletext="FORMLAR";

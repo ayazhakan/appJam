@@ -186,23 +186,25 @@ class _MazeretlerState extends State<Mazeretler> {
                       ),
                     ),
                     SizedBox(height: Dimensions.width40,),
-                    ElevatedButton(onPressed: () {
+                    ElevatedButton(onPressed: () async {
                      /// Navigator.pop(context,HomePage());
                       Get.snackbar(
                         "Belge Gönderimi",
                         "Mazeret göderiliyor...",
                         icon: Icon(Icons.send, color: Colors.black),
                         snackPosition: SnackPosition.BOTTOM,
-                        duration: Duration(seconds: 3),
+                        duration: Duration(milliseconds: 1500),
                       );
                       Get.snackbar(
                           "Mazeret Bildirgesi",
                           "Mazeret gönderildi",
                           icon: Icon(Icons.done, color: Colors.black),
                           snackPosition: SnackPosition.TOP,
-                          duration: Duration(seconds: 3)
+                          duration: Duration(seconds: 2)
 
                       );
+                      await Future.delayed(Duration(milliseconds: 1500));
+                      Navigator.pop(context);
                     }, child: Text(
                       "Kaydet ve Gönder"
                     )
