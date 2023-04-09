@@ -197,9 +197,9 @@ class _Detail_PageState extends State<Detail_Page> {
                     "Form Kaydediliyor...",
                     icon: Icon(Icons. done, color: Colors.green),
                     snackPosition: SnackPosition.BOTTOM,
-                    duration: Duration(seconds: 4)
+                    duration: Duration(seconds: 3)
                   );
-                  Get.to(FormPage());
+                  Navigator.pop(context);
                 }, child: Text("Kaydet",),
                 style: ButtonStyle(
                   backgroundColor:MaterialStateProperty.all(Colors.blue),
