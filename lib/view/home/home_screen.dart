@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:akademi_mobil/constants/color.dart';
 import 'package:akademi_mobil/view/profile/profile_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,13 @@ class _HomePageState extends State<HomePage> {
   List egitimList = ["Teknik", "Coursera", "Girişimcilik", "İngilizce"];
   int haberDuyuru = 0;
   List<double> bitirmeYuzdesiList = [68, 46, 32, 93];
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadImage();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -205,11 +213,29 @@ class _HomePageState extends State<HomePage> {
         elevation: 4.0,
         child: Row(
           children: [
-            Image.network(
-              haberList[index].imageUrl,
-              width: 150,
-              height: 150,
-            ),
+            _isLoading == true
+                ? Image.asset(
+                    "assets/haber/haber${(index + 1).toString()}.jpg",
+                    height: 150,
+                    width: 150,
+                  )
+                : Container(
+                    height: 150,
+                    width: 150,
+                    child: Padding(
+                      padding: const EdgeInsets.all(45.0),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 10,
+                        color: index % 4 == 0
+                            ? kirmizi
+                            : index % 4 == 1
+                                ? yesil
+                                : index % 4 == 2
+                                    ? sari
+                                    : mavi,
+                      ),
+                    ),
+                  ),
             SizedBox(
               width: 10,
             ),
@@ -225,6 +251,13 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> _loadImage() async {
+    await Future.delayed(Duration(milliseconds: 1300)).then((value) => () {});
+    setState(() {
+      _isLoading = true;
+    });
   }
 
   buildDuyurular(int index) {
