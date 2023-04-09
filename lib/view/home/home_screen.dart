@@ -27,9 +27,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Anasayfa"),
-        actions: [IconButton(onPressed: () {
-          Get.to(ProfilePage());
-        }, icon: const Icon(Icons.person))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(ProfilePage());
+              },
+              icon: const Icon(Icons.person))
+        ],
         backgroundColor: kAppBarColor,
       ),
       body: ListView(
@@ -177,16 +181,16 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                buildHaberler(0),
-                buildHaberler(1),
-                buildHaberler(2),
-                buildHaberler(3),
-                buildHaberler(4),
-                buildHaberler(5),
-                buildHaberler(6),
-                buildHaberler(7),
-                buildHaberler(8),
-                buildHaberler(9),
+                haberDuyuru == 0 ? buildHaberler(0) : buildDuyurular(0),
+                haberDuyuru == 0 ? buildHaberler(1) : buildDuyurular(1),
+                haberDuyuru == 0 ? buildHaberler(2) : buildDuyurular(2),
+                haberDuyuru == 0 ? buildHaberler(3) : buildDuyurular(3),
+                haberDuyuru == 0 ? buildHaberler(4) : buildDuyurular(4),
+                haberDuyuru == 0 ? buildHaberler(5) : buildDuyurular(5),
+                haberDuyuru == 0 ? buildHaberler(6) : buildDuyurular(6),
+                haberDuyuru == 0 ? buildHaberler(7) : buildDuyurular(7),
+                haberDuyuru == 0 ? buildHaberler(8) : buildDuyurular(8),
+                haberDuyuru == 0 ? buildHaberler(9) : buildDuyurular(9),
               ],
             ),
           ),
@@ -219,6 +223,44 @@ class _HomePageState extends State<HomePage> {
               width: 10,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  buildDuyurular(int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 150,
+        color: index % 4 == 0
+            ? kirmizi
+            : index % 4 == 1
+                ? yesil
+                : index % 4 == 2
+                    ? sari
+                    : mavi,
+        child: Card(
+          elevation: 4.0,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("assets/megafon.png", height: 100),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Flexible(
+                  child: Text(
+                duyuruList[index].baslik,
+                textAlign: TextAlign.center,
+              )),
+              SizedBox(
+                width: 10,
+              ),
+            ],
+          ),
         ),
       ),
     );
