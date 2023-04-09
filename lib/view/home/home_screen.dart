@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+var showAlert = false;
 class _HomePageState extends State<HomePage> {
   double startDegreeOffset = 180;
   int isSelected = 0;
@@ -29,8 +30,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _loadImage();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => showRatingDialog(context));
+    showAlert == false ? WidgetsBinding.instance.addPostFrameCallback((_) => showRatingDialog(context)) : null;
+    showAlert=true;
   }
 
   void showRatingDialog(BuildContext context) {
