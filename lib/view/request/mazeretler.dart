@@ -45,7 +45,7 @@ class _MazeretlerState extends State<Mazeretler> {
                 padding: EdgeInsets.all(Dimensions.padding16),
                 child: Column(
                   children: [
-                    TextField_Learn().buildInput(title: "Mazeretler", index: 0),
+                    TextField_Learn().buildInput(title: "Mazeretler", index: 0,lines: 10,unvisibility: false),
                     SizedBox(height: Dimensions.padding16,),
                     Card(
                       elevation: 20,
