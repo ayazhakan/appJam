@@ -32,7 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
             radius: 75,
           ),
           SizedBox(height: 20),
-          Text("Merhaba",
+          Text("Merhaba Nilay",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 32,
