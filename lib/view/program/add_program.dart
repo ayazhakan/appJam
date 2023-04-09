@@ -56,7 +56,7 @@ class _AddProgram extends State<AddProgram> {
        key: _formKey,
        child: Column(
          children: <Widget>[
-
+           TextFormField(decoration: InputDecoration(labelText: "Program Adı")),
           TextFormField(decoration: InputDecoration(labelText: "Gün giriniz")
             ,onSaved: (val)=> setState(()=>icerik.gun=val!)),
            TextFormField(decoration: InputDecoration(labelText: "Başlangıç saati giriniz XX:XX")
