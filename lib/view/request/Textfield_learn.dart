@@ -6,12 +6,13 @@ class TextField_Learn{
   ];
   Container buildInput(
       {TextInputType textInputType = TextInputType.text,
-        required String title,
+        required String title,required int lines, required bool unvisibility,
         required int index}) {
     return Container(
       width: double.maxFinite,
       child: TextFormField(
-        maxLines: 10,
+        obscureText: unvisibility,
+        maxLines: lines,
         keyboardType: textInputType,
         onSaved: (newValue) => formInputs[index] = newValue!,
         onChanged: (value) {
