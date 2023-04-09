@@ -34,7 +34,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
                 child: Icon(Icons.accessibility_new_outlined, size: 30,), //Icon(Icons.looks_6_rounded),
                 onPressed: () {
                   bottomNavIndex.value = 0;
-                  Get.offAll(HomePage());
+                  Get.to(TreePage());
                 },
               ),
             ),
