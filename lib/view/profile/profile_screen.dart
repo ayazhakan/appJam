@@ -1,3 +1,4 @@
+import 'package:akademi_mobil/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,15 +12,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  bool _switchValue = false;
+  bool _switchValue = true;
   String dil = "Türkçe";
-  String _switchText = 'Switch is OFF';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PROFİLİM"),
+        backgroundColor: kAppBarColor,
+        title: Text("Profilim"),
       ),
       body: ListView(
         ///todo: Profil bilgiler i + fotoğraf + bildirim tercihleri vb.
@@ -49,19 +50,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   )),
               Spacer(),
               Switch(
+                hoverColor: yesil,
+                activeColor: yesil,
                 value: _switchValue,
                 onChanged: (bool newValue) {
                   setState(() {
                     _switchValue = newValue;
-                    if (_switchValue) {
-                      _switchText = 'Switch is ON';
-                    } else {
-                      _switchText = 'Switch is OFF';
-                    }
                   });
                 },
               ),
-              SizedBox(height: 25),
+              SizedBox(width: 25),
             ],
           ),
           SizedBox(height: 20),
