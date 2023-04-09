@@ -1,6 +1,9 @@
 import 'package:akademi_mobil/constants/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rive/rive.dart';
+
+import '../../bottom_navbar.dart';
 
 class TreePage extends StatefulWidget {
   const TreePage({Key? key}) : super(key: key);
@@ -74,6 +77,27 @@ class _TreePageState extends State<TreePage>
                 inputValue?.change(50);
               }
             },
+          ),
+          Column(
+            children: [
+              SizedBox(
+                height: Get.height * 0.1,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Get.offAll(BottomNavBarPage());
+                    },
+                    child: Text(
+                      "Uygulamaya Dön",
+                      style: TextStyle(color: Colors.green.withOpacity(0.9)),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
