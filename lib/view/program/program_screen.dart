@@ -48,7 +48,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow,
               child: Row(
-
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     1"),
                   SizedBox(width: 10),
@@ -101,6 +101,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow2,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     2"),
                   SizedBox(width: 10),
@@ -153,6 +154,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow3,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     3"),
                   SizedBox(width: 10),
@@ -205,6 +207,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow4,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     4"),
                   SizedBox(width: 10),
@@ -257,6 +260,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow5,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     5"),
                   SizedBox(width: 10),
@@ -309,6 +313,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow6,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     6"),
                   SizedBox(width: 10),
@@ -361,6 +366,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow7,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     7"),
                   SizedBox(width: 10),
@@ -413,6 +419,7 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow8,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Program     8"),
                   SizedBox(width: 10),
