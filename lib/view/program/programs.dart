@@ -31,7 +31,7 @@ class _ProgramseState extends State<Programs> {
         gun: "Pazartesi",
         baslangic: "20:00",
         bitis: "22:00",
-        ders: "İngilizce"
+        ders:"İngilizce"
     ),
     ProgramIcerik(
         gun: "Salı",
@@ -105,7 +105,7 @@ class _ProgramseState extends State<Programs> {
         ders: "Flutter"
     ),
     ProgramIcerik(
-        gun: "Çarşamba",
+        gun:"Çarşamba",
         baslangic: "18:00",
         bitis: "20:00",
         ders: "Flutter"
@@ -125,7 +125,7 @@ class _ProgramseState extends State<Programs> {
         gun: "Perşembe",
         baslangic: "20:00",
         bitis: "21:00",
-        ders: "Flutter"
+        ders:"Flutter"
     ),ProgramIcerik(
         gun: "Cuma",
         baslangic: "18:00",
