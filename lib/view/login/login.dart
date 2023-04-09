@@ -13,7 +13,15 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   get passwordController => null;
+  final _text = TextEditingController();
+  final _text2 = TextEditingController();
+   bool _validate = false;
 
+  @override
+  void dispose() {
+    _text.dispose();
+    super.dispose();
+  }
 
 
   @override
@@ -55,21 +63,24 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             padding: const EdgeInsets.all(10),
             child: TextField(
-              decoration: const InputDecoration(
+                controller: _text,
+              decoration:  InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'E posta',
+                errorText: _validate ? 'E-posta boş olamaz' : null,
               ),
             ),
           ),
           Container(
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: TextField(
+              controller: _text2,
               obscureText: true,
-              controller: passwordController,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Şifre',
                 suffixText: '*',
+                errorText: _validate ? 'E-posta boş olamaz' : null,
               ),
             ),
           ),
@@ -87,13 +98,17 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text(
                   'Giriş',
                 ),
-                onPressed: () {
-                  var nameController;
-                  var passwordController;
-                  //print(nameController.text);
-                  //print(passwordController.text);
-                  Get.offAll(BottomNavBarPage());
-                },
+                  onPressed: () {
+                    setState(() {
+                      _text.text.isEmpty ? _validate = true : _validate = false;
+                      _text2.text.isEmpty ? _validate = true : _validate = false;
+                    });
+
+                    if(_text.text.isEmpty!=true && _text2.text.isEmpty!=true){
+                    Get.offAll(BottomNavBarPage());
+                  }}
+
+
               )),
           Row(
             children: <Widget>[
