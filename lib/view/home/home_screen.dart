@@ -224,13 +224,15 @@ class _HomePageState extends State<HomePage> {
         elevation: 4.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
-          side: BorderSide(color: index % 4 == 0
-              ? kirmizi
-              : index % 4 == 1
-              ? yesil
-              : index % 4 == 2
-              ? sari
-              : mavi, width: 2),
+          side: BorderSide(
+              color: index % 4 == 0
+                  ? kirmizi
+                  : index % 4 == 1
+                      ? yesil
+                      : index % 4 == 2
+                          ? sari
+                          : mavi,
+              width: 2),
         ),
         child: Row(
           children: [
@@ -262,12 +264,12 @@ class _HomePageState extends State<HomePage> {
             ),
             Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Text(
-              haberList[index].aciklama,
-              textAlign: TextAlign.justify,
-            ),
-                )),
+              padding: const EdgeInsets.all(3.0),
+              child: Text(
+                haberList[index].aciklama,
+                textAlign: TextAlign.justify,
+              ),
+            )),
             SizedBox(
               width: 10,
             ),
