@@ -1,6 +1,10 @@
 
 import 'package:akademi_mobil/view/program/programIcerik.dart';
+import 'package:akademi_mobil/view/program/program_screen.dart';
+import 'package:akademi_mobil/view/program/programs.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/color.dart';
 
 
 
@@ -31,6 +35,7 @@ class _AddProgram extends State<AddProgram> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Program Ekle"),
+        backgroundColor: yesil,
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -66,7 +71,7 @@ class _AddProgram extends State<AddProgram> {
 
            Container(
              margin: EdgeInsets.all(10.0),
-             child: FloatingActionButton(onPressed: ()=>_onSubmit(),child: Text("Onayla"),
+             child: FloatingActionButton(onPressed: ()=>_onSubmit(),child: Text("Onayla"),backgroundColor: yesil,
 
 
              ),
@@ -83,6 +88,9 @@ class _AddProgram extends State<AddProgram> {
 setState(() {
       _icerik.add(icerik);
 });
+       Navigator.push(
+           context,
+           MaterialPageRoute(builder: (context) => ProgramPage()));
 form.reset();
 
 

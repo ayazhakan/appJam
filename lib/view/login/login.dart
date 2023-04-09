@@ -14,6 +14,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   get passwordController => null;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,21 +52,26 @@ class _LoginPageState extends State<LoginPage> {
                     ))),
             Container(
               padding: const EdgeInsets.all(10),
-              child: TextField(
+              child: TextFormField(
+                  validator: (val)=>(val?.length==0 ?"bu alanı boş bırakamasınız":null),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'E posta',
                 ),
+
               ),
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
+              child: TextFormField(
+
+                validator: (val)=>(val?.length==0 ?"bu alanı boş bırakamasınız":null),
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Şifre',
+                  suffixText: '*',
                 ),
               ),
             ),
@@ -114,4 +120,6 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ));
   }
+
 }
+

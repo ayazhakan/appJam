@@ -2,6 +2,7 @@
 import 'package:akademi_mobil/view/program/programs.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/color.dart';
 import 'add_program.dart';
 import 'programIcerik.dart';
 import 'programs.dart';
@@ -10,9 +11,10 @@ import 'programs.dart';
 
 class ProgramPage extends StatefulWidget {
 
+AddProgram addProgram= AddProgram();
+  List<ProgramIcerik> icerik=[];
 
 
-  const ProgramPage({Key? key}) : super(key: key);
 
   @override
   State<ProgramPage> createState() => _ProgramPageState();
@@ -27,7 +29,8 @@ class _ProgramPageState extends State<ProgramPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Programlar"),
-      ),floatingActionButton: ElevatedButton(
+          backgroundColor: yesil,
+      ),floatingActionButton: FloatingActionButton(backgroundColor: yesil,
       child: const Icon(Icons.add),
       onPressed: () {
         Navigator.push(
@@ -55,7 +58,21 @@ class _ProgramPageState extends State<ProgramPage> {
              ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
                  primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
            ],
-         ),
+         ), Row(
+           children: [
+             Text("Yeni Program"),
+             ElevatedButton(onPressed: (){
+               Navigator.push(
+                   context,
+                   MaterialPageRoute(builder: (context) => const Programs()));
+             }, child: const Text("Git!")),
+             ElevatedButton.icon(icon: Icon(Icons.delete), style: ElevatedButton.styleFrom(
+               primary: Colors.red, // Background color
+             ),onPressed: (){}, label:Text(" Sil!")),
+             ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
+                 primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
+           ],
+         )
        ],
      )
     );
