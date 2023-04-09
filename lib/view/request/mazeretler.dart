@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../form/Dimensions.dart';
+import 'Textfield_learn.dart';
 class Mazeretler extends StatefulWidget {
   const Mazeretler({Key? key}) : super(key: key);
 
@@ -11,9 +12,7 @@ class Mazeretler extends StatefulWidget {
 }
 
 class _MazeretlerState extends State<Mazeretler> {
-  List<dynamic> formInputs = [
-    "",
-  ];
+
   static const iconTypes = <IconData>[
    Icons.file_present,
     Icons.link,
@@ -46,7 +45,7 @@ class _MazeretlerState extends State<Mazeretler> {
                 padding: EdgeInsets.all(Dimensions.padding16),
                 child: Column(
                   children: [
-                    buildInput(index: 0),
+                    TextField_Learn().buildInput(title: "Mazeretler", index: 0),
                     SizedBox(height: Dimensions.padding16,),
                     Card(
                       elevation: 20,
@@ -192,9 +191,17 @@ class _MazeretlerState extends State<Mazeretler> {
                       Get.snackbar(
                         "Belge Gönderimi",
                         "Mazeret göderiliyor...",
-                        icon: Icon(Icons.done, color: Colors.black),
+                        icon: Icon(Icons.send, color: Colors.black),
                         snackPosition: SnackPosition.BOTTOM,
                         duration: Duration(seconds: 3),
+                      );
+                      Get.snackbar(
+                          "Mazeret Bildirgesi",
+                          "Mazeret gönderildi",
+                          icon: Icon(Icons.done, color: Colors.black),
+                          snackPosition: SnackPosition.TOP,
+                          duration: Duration(seconds: 3)
+
                       );
                     }, child: Text(
                       "Kaydet ve Gönder"
@@ -209,46 +216,8 @@ class _MazeretlerState extends State<Mazeretler> {
       ),
     );
   }
-  Container buildInput(
-      {TextInputType textInputType = TextInputType.text,
-        required int index}) {
-    return Container(
-      width: double.maxFinite,
-      child: TextFormField(
-        maxLines: 10,
-        keyboardType: textInputType,
-        onSaved: (newValue) => formInputs[index] = newValue!,
-        onChanged: (value) {
-          return null;
-        },
-        validator: (value) {
-          return null;
-        },
-        decoration: buildInputDecoration("Mazeret Bildirgesi"),
-      ),
-    );
-  }
 
-  InputDecoration buildInputDecoration(String text) {
-    return InputDecoration(
-      focusColor: Colors.green,
-      hoverColor: Colors.green,
-      label: Text(text,style: const TextStyle(color: Colors.black),),
-      floatingLabelBehavior: FloatingLabelBehavior.always,
-      focusedBorder: OutlineInputBorder(
-        borderSide:  const BorderSide(width: 3, color: Colors.green),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      border: const OutlineInputBorder(
-        borderSide: BorderSide(
-          width: 3,
-          color: Colors.redAccent,
-        ),
-      ),
-      errorBorder: const OutlineInputBorder(
-        borderSide: BorderSide(width: 3, color: Colors.redAccent),
-      ),
-    );
-  }
 }
+
+
 
