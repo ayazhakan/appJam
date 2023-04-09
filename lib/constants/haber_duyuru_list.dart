@@ -85,6 +85,34 @@ class Duyuru {
 
 List<Duyuru> duyuruList = [
   Duyuru(
-    ""
+    "Mart ayı görevlerinizi tamamlamanız için 6 Nisan’a kadar ek süre veriyoruz."
   ),
+  Duyuru(
+      "App & Game Jam Başvuruları Başladı."
+  ),
+  Duyuru(
+      "BUGÜN 21.00'da Girişimciler için Finans Soru Cevap Buluşmamız var"
+  ),
+  Duyuru(
+      "BU AKŞAM 21.00'da eğitmenimiz Seçkin Esen ile Yazılımcılar için İngilizce Canlı Yayınımız var"
+  ),
+  Duyuru(
+      "App & Game Jam'e Katılım Zorunluluğunu Kaldırdık."
+  ),
+  Duyuru(
+      "BUGÜN 20.00'da Unity Soru - Cevap Etkinliğimiz Var."
+  ),
+  Duyuru(
+      "BUGÜN 20.00'da Flutter Soru - Cevap Etkinliğimiz Var."
+  ),
+  Duyuru(
+      "Akademide Hediyeleşme Zamanı: Hediye Formu"
+  ),
+  Duyuru(
+      "Akademi Takvimi ve Görevleri Güncellendi. "
+  ),
+  Duyuru(
+      "Ideathon Başvuruları Başladı."
+  ),
+
 ];

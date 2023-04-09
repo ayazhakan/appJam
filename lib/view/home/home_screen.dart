@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:akademi_mobil/constants/color.dart';
+import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constants/haber_duyuru_list.dart';
 
@@ -25,7 +27,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Anasayfa"),
-        backgroundColor: mavi,
+        actions: [IconButton(onPressed: () {
+          Get.to(ProfilePage());
+        }, icon: const Icon(Icons.person))],
+        backgroundColor: kAppBarColor,
       ),
       body: ListView(
         children: [
