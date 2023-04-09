@@ -1,4 +1,3 @@
-
 import 'package:akademi_mobil/view/program/programs.dart';
 import 'package:flutter/material.dart';
 
@@ -7,74 +6,430 @@ import 'add_program.dart';
 import 'programIcerik.dart';
 import 'programs.dart';
 
-
-
 class ProgramPage extends StatefulWidget {
-
-AddProgram addProgram= AddProgram();
-  List<ProgramIcerik> icerik=[];
-
-
+  AddProgram addProgram = AddProgram();
+  List<ProgramIcerik> icerik = [];
 
   @override
   State<ProgramPage> createState() => _ProgramPageState();
-
 }
 
 class _ProgramPageState extends State<ProgramPage> {
+  bool _isShow = true;
+  bool _isShow2 = true;
+  bool _isShow3 = true;
+  bool _isShow4 = true;
+  bool _isShow5 = true;
+  bool _isShow6 = true;
+  bool _isShow7 = true;
+  bool _isShow8 = true;
+
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Programlar"),
+        appBar: AppBar(
+          title: Text("Programlar"),
           backgroundColor: yesil,
-      ),floatingActionButton: FloatingActionButton(backgroundColor: yesil,
-      child: const Icon(Icons.add),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AddProgram()),
-        );
-      },
-    )
-        ,
-
-
-     body: Column(
-       children: [
-         Row(
-           children: [
-             Text("Birinci Program"),
-             ElevatedButton(onPressed: (){
-               Navigator.push(
-                   context,
-                   MaterialPageRoute(builder: (context) => const Programs()));
-             }, child: const Text("Git!")),
-             ElevatedButton.icon(icon: Icon(Icons.delete), style: ElevatedButton.styleFrom(
-               primary: Colors.red, // Background color
-             ),onPressed: (){}, label:Text(" Sil!")),
-             ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
-                 primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
-           ],
-         ), Row(
-           children: [
-             Text("Yeni Program"),
-             ElevatedButton(onPressed: (){
-               Navigator.push(
-                   context,
-                   MaterialPageRoute(builder: (context) => const Programs()));
-             }, child: const Text("Git!")),
-             ElevatedButton.icon(icon: Icon(Icons.delete), style: ElevatedButton.styleFrom(
-               primary: Colors.red, // Background color
-             ),onPressed: (){}, label:Text(" Sil!")),
-             ElevatedButton.icon(icon: Icon(Icons.update),style: ElevatedButton.styleFrom(
-                 primary: Colors.green), onPressed: (){}, label:Text(" Güncelle!")),
-           ],
-         )
-       ],
-     )
-    );
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: yesil,
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AddProgram()),
+            );
+          },
+        ),
+        body: Column(
+          children: [
+            Visibility(
+              visible: _isShow,
+              child: Row(
+                children: [
+                  Text("Program 1   "),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow = !_isShow;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow2,
+              child: Row(
+                children: [
+                  Text("Program 2  "),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow2 = !_isShow2;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow3,
+              child: Row(
+                children: [
+                  Text(" Program 3"),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow3 = !_isShow3;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow4,
+              child: Row(
+                children: [
+                  Text("Program   4"),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow4 = !_isShow4;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow5,
+              child: Row(
+                children: [
+                  Text("Program    5"),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow5 = !_isShow5;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow6,
+              child: Row(
+                children: [
+                  Text("Program   6"),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow6 = !_isShow6;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow7,
+              child: Row(
+                children: [
+                  Text("Program    7"),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow7 = !_isShow7;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: _isShow8,
+              child: Row(
+                children: [
+                  Text("Program    8"),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Programs()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.green),
+                      child: const Text("Git!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.delete),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.red),
+                      onPressed: () {
+                        setState(
+                              () {
+                            _isShow8 = !_isShow8;
+                          },
+                        );
+                      },
+                      label: Text(" Sil!")),
+                  ElevatedButton.icon(
+                      icon: Icon(Icons.update),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0) ,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          primary: Colors.yellow),
+                      onPressed: () {},
+                      label: Text(" Güncelle!")),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }

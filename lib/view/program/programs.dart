@@ -80,67 +80,6 @@ class _ProgramseState extends State<Programs> {
         ders: "Flutter"
     ),
   ];
-  List<ProgramIcerik> alinacakProgram=[
-    ProgramIcerik(
-        gun: "Pazartesi",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Flutter"
-    ),ProgramIcerik(
-        gun: "Pazartesi",
-        baslangic: "20:00",
-        bitis: "22:00",
-        ders: "İngilizce"
-    ),
-    ProgramIcerik(
-        gun: "Salı",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Proje Yönetimi"
-    ),
-    ProgramIcerik(
-        gun: "Salı",
-        baslangic: "20:00",
-        bitis: "21:00",
-        ders: "Flutter"
-    ),
-    ProgramIcerik(
-        gun:"Çarşamba",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Flutter"
-    ),ProgramIcerik(
-        gun: "Çarşamba",
-        baslangic: "20:00",
-        bitis: "22:00",
-        ders: "İngilizce"
-    ),
-    ProgramIcerik(
-        gun: "Perşembe",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Proje Yönetimi"
-    ),
-    ProgramIcerik(
-        gun: "Perşembe",
-        baslangic: "20:00",
-        bitis: "21:00",
-        ders:"Flutter"
-    ),ProgramIcerik(
-        gun: "Cuma",
-        baslangic: "18:00",
-        bitis: "20:00",
-        ders: "Proje Yönetimi"
-    ),
-    ProgramIcerik(
-        gun: "Cuma",
-        baslangic: "20:00",
-        bitis: "21:00",
-        ders: "Flutter"
-    ),
-  ];
-
-
 
   @override
   Widget build(BuildContext context) {
