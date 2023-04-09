@@ -40,7 +40,7 @@ dependencies:
   fl_chart: ^0.61.0
   animated_bottom_navigation_bar: ^1.2.0
   rive: ^0.9.1
-
+  loading_indicator: ^3.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

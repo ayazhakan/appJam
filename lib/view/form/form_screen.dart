@@ -1,11 +1,13 @@
+import 'dart:async';
+
 import 'package:akademi_mobil/view/form/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'Dimensions.dart';
 import 'Sliver_app_bar.dart';
 import 'Text_Learn.dart';
-
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
 
@@ -14,54 +16,54 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
+  bool _isLoading = true;
   List formList=[false,false,false,false,false,false,false,false,false,false,];
   List formName=["Akademi Başvuru","Ideathon","APP Jam","Game Jam","Etkinlik Başvuru 1","Etkinlik Başvuru 2","Bootcamp Başvuru","Alan Başvuru","İngilizce Ders","Hediye Başvuru"];
   var titletext="FORMLAR";
   @override
+  void initState() {
+    Future.delayed(Duration(seconds: 3), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    super.initState();
+
+  }
+  @override
   Widget build(BuildContext context) {
       return Scaffold(
-        body: CustomScrollView(
-         slivers: [
-           buildSliverAppBar(titletext: "FORMLAR",),
-           SliverList(
-             delegate: SliverChildBuilderDelegate(
-                   (BuildContext context, int index) {
-                 return buildForm(index,context);
-               },
-               childCount: 10,
+        body: Container(
+          child: _isLoading ? Center(
+            child: Container(
+              ///width:500 ,
+              ///height: 70,
+              child: Padding(
+                padding: EdgeInsets.only(right:Dimensions.padding16 ),
+                child: LoadingIndicator(
+                    indicatorType: Indicator.pacman, /// Required, The loading type of the widget
+                    colors: [Colors.blue,Colors.red,Colors.yellow],       /// Optional, The color collections
+                    strokeWidth: 1,                     /// Optional, The stroke of the line, only applicable to widget which contains line
+                    backgroundColor: Colors.white,      /// Optional, Background of the widget/// Optional, the stroke backgroundColor
+                ),
+              ),
+            ),
+          ):
+          CustomScrollView(
+           slivers: [
+             buildSliverAppBar(titletext: "FORMLAR",),
+             SliverList(
+               delegate: SliverChildBuilderDelegate(
+                     (BuildContext context, int index) {
+                   return buildForm(index,context);
+                 },
+                 childCount: 10,
+               ),
              ),
-           ),
-         ],
+           ],
      ),
-        backgroundColor:Colors.white,
-        bottomNavigationBar: Container(
-          ///padding: EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-          ),
-          child: BottomNavigationBar(
-            showSelectedLabels: false,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-                backgroundColor: Colors.blueGrey,
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-              ),
-            ],
-          ),
         ),
+        backgroundColor:Colors.white,
       );
   }
 
