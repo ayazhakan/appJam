@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    startDegreeOffsetTimer();
     return Scaffold(
       appBar: AppBar(
         title: Text("Anasayfa"),
@@ -264,14 +263,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  void startDegreeOffsetTimer() {
-    Timer.periodic(Duration(milliseconds: 500), (_) {
-      setState(() {
-        startDegreeOffset++;
-      });
-    });
   }
 
   final Duration _animationDuration = const Duration(milliseconds: 500);
