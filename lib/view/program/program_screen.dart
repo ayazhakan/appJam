@@ -48,8 +48,10 @@ class _ProgramPageState extends State<ProgramPage> {
             Visibility(
               visible: _isShow,
               child: Row(
+
                 children: [
-                  Text("Program 1   "),
+                  Text("Program     1"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -59,20 +61,22 @@ class _ProgramPageState extends State<ProgramPage> {
                       },
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 10.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow = !_isShow;
@@ -80,11 +84,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -97,7 +102,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow2,
               child: Row(
                 children: [
-                  Text("Program 2  "),
+                  Text("Program     2"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -112,15 +118,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow2 = !_isShow2;
@@ -128,11 +136,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -145,7 +154,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow3,
               child: Row(
                 children: [
-                  Text(" Program 3"),
+                  Text("Program     3"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -160,15 +170,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow3 = !_isShow3;
@@ -176,11 +188,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -193,7 +206,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow4,
               child: Row(
                 children: [
-                  Text("Program   4"),
+                  Text("Program     4"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -208,15 +222,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow4 = !_isShow4;
@@ -224,11 +240,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -241,7 +258,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow5,
               child: Row(
                 children: [
-                  Text("Program    5"),
+                  Text("Program     5"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -256,15 +274,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow5 = !_isShow5;
@@ -272,11 +292,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -289,7 +310,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow6,
               child: Row(
                 children: [
-                  Text("Program   6"),
+                  Text("Program     6"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -304,15 +326,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow6 = !_isShow6;
@@ -320,11 +344,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -337,7 +362,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow7,
               child: Row(
                 children: [
-                  Text("Program    7"),
+                  Text("Program     7"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -352,15 +378,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow7 = !_isShow7;
@@ -368,11 +396,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -385,7 +414,8 @@ class _ProgramPageState extends State<ProgramPage> {
               visible: _isShow8,
               child: Row(
                 children: [
-                  Text("Program    8"),
+                  Text("Program     8"),
+                  SizedBox(width: 10),
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -400,15 +430,17 @@ class _ProgramPageState extends State<ProgramPage> {
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.green),
                       child: const Text("Git!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.delete),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
+                              horizontal: 10.0, vertical: 5.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.red),
                       onPressed: () {
+                        showAlertDialog(context);
                         setState(
                               () {
                             _isShow8 = !_isShow8;
@@ -416,11 +448,12 @@ class _ProgramPageState extends State<ProgramPage> {
                         );
                       },
                       label: Text(" Sil!")),
+                  SizedBox(width: 10),
                   ElevatedButton.icon(
                       icon: Icon(Icons.update),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0) ,
+                              horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           primary: Colors.yellow),
@@ -431,5 +464,30 @@ class _ProgramPageState extends State<ProgramPage> {
             )
           ],
         ));
+  }
+  showAlertDialog(BuildContext context) {
+
+    // set up the button
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: () { Navigator.of(context).pop();},
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(""),
+      content: Text("Program silindi."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }
