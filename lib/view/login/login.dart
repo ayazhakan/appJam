@@ -25,9 +25,9 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             SizedBox(height: 25),
             Container(
-                height: 120,
-                child: Image.network(
-                    'https://oyunveuygulamaakademisi.com/assets/site/oua/assets/sites/images/sign-up-images/sign-up.png')),
+              height: 120,
+              child: Image.asset("assets/sign-up.png"),
+            ),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
