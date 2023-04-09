@@ -92,7 +92,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -144,7 +144,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -196,7 +196,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -248,7 +248,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -300,7 +300,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -352,7 +352,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -404,7 +404,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
@@ -456,7 +456,7 @@ class _ProgramPageState extends State<ProgramPage> {
                               horizontal: 10.0, vertical: 5.0) ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
-                          primary: Colors.yellow),
+                          primary: Colors.blue),
                       onPressed: () {},
                       label: Text(" Güncelle!")),
                 ],
