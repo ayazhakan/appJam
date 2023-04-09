@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:akademi_mobil/constants/color.dart';
+import 'package:akademi_mobil/view/home/haber_detay_screen.dart';
 import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -278,63 +279,68 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container buildHaberler(int index) {
-    return Container(
-      height: 200,
-      child: Card(
-        elevation: 4.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-          side: BorderSide(
-              color: index % 4 == 0
-                  ? kirmizi
-                  : index % 4 == 1
-                      ? yesil
-                      : index % 4 == 2
-                          ? sari
-                          : mavi,
-              width: 2),
-        ),
-        child: Row(
-          children: [
-            _isLoading == true
-                ? Image.asset(
-                    "assets/haber/haber${(index + 1).toString()}.jpg",
-                    height: 150,
-                    width: 150,
-                  )
-                : Container(
-                    height: 150,
-                    width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(45.0),
-                      child: CircularProgressIndicator(
-                        strokeWidth: 10,
-                        color: index % 4 == 0
-                            ? kirmizi
-                            : index % 4 == 1
-                                ? yesil
-                                : index % 4 == 2
-                                    ? sari
-                                    : mavi,
+  buildHaberler(int index) {
+    return GestureDetector(
+      onTap: (){
+        Get.to(HaberDetayPage(index: index));
+      },
+      child: Container(
+        height: 200,
+        child: Card(
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+            side: BorderSide(
+                color: index % 4 == 0
+                    ? kirmizi
+                    : index % 4 == 1
+                        ? yesil
+                        : index % 4 == 2
+                            ? sari
+                            : mavi,
+                width: 2),
+          ),
+          child: Row(
+            children: [
+              _isLoading == true
+                  ? Image.asset(
+                      "assets/haber/haber${(index + 1).toString()}.jpg",
+                      height: 150,
+                      width: 150,
+                    )
+                  : Container(
+                      height: 150,
+                      width: 150,
+                      child: Padding(
+                        padding: const EdgeInsets.all(45.0),
+                        child: CircularProgressIndicator(
+                          strokeWidth: 10,
+                          color: index % 4 == 0
+                              ? kirmizi
+                              : index % 4 == 1
+                                  ? yesil
+                                  : index % 4 == 2
+                                      ? sari
+                                      : mavi,
+                        ),
                       ),
                     ),
-                  ),
-            SizedBox(
-              width: 10,
-            ),
-            Flexible(
-                child: Padding(
-              padding: const EdgeInsets.all(3.0),
-              child: Text(
-                haberList[index].aciklama,
-                textAlign: TextAlign.justify,
+              SizedBox(
+                width: 10,
               ),
-            )),
-            SizedBox(
-              width: 10,
-            ),
-          ],
+              Flexible(
+                  child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Text(
+                  haberList[index].aciklama,
+                  textAlign: TextAlign.justify,
+                ),
+              )),
+              SizedBox(
+                width: 10,
+              ),
+            ],
+          ),
         ),
       ),
     );
