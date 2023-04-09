@@ -84,7 +84,7 @@ class _TreePageState extends State<TreePage>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Tebrikler ağacınız büyümesi %83",
+                      "Tebrikler ağacınız büyümesi %71",
                       style: TextStyle(fontSize: 18, color: yesil),
                       textAlign: TextAlign.center,
                     ),

@@ -1,3 +1,4 @@
+import 'package:akademi_mobil/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,34 +14,73 @@ class _RequestPageState extends State<RequestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kAppBarColor,
         title: Text(""),
       ),
       body: ListView(
         ///todo: talepler ekranı - akademi ekbiyle iletişim vb.
         children: [
 
-          SizedBox(height: 20),
+
 
           buildContainer(
-            Icons.phone,
+            Icons.edit_note,
             "Mazeret İşlemi",
           ),
-        SizedBox(height: 15),
+        SizedBox(height: 5),
         buildContainer(
         Icons.contact_support,
         "Destek Talep",
         ),
-          SizedBox(height: 15),
+          SizedBox(height: 5),
           buildContainer(
             Icons.comment,
             "Öneri",
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 5),
           buildContainer(
             Icons.pending_actions,
             "Değerlendirme",
           ),
-          SizedBox(height: 35),
+          //SizedBox(height: 5),
+          //buildContainer(
+            //Icons.forward_to_inbox_outlined,
+            //"Gelen Kutusu",
+          //),
+          SizedBox(height: 5),
+           Card(
+            elevation: 4.0,
+            child: Row(
+              children: [
+
+                Icon( Icons.forward_to_inbox_sharp,
+                  size: 32,
+                  color: Colors.black,
+                ),
+
+                SizedBox(height: 50 , width: 20 ),
+                Row(
+                  children: [
+                    Text(
+                      "Gelen Kutusu",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+
+                      ),),
+                    SizedBox(width: 175),
+                    Icon(Icons.plus_one_sharp,
+                     color: Colors.red,
+                      weight: 70,
+                    ),
+                  ],
+                )
+
+              ],
+            ),
+          ),
+
+SizedBox(height: 30),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -96,7 +136,7 @@ class _RequestPageState extends State<RequestPage> {
     return Container(
           height: Get.height * 0.09,
           child: Card(
-            elevation: 4.0,
+            elevation: 3.0,
             child: Row(
               children: [
 
@@ -105,14 +145,14 @@ class _RequestPageState extends State<RequestPage> {
                   color: Colors.black,
                 ),
 
-                SizedBox(height: 500 , width: 20 ),
+                SizedBox(height: 20 , width: 20 ),
                 Row(
                   children: [
                     Text(
                       text,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 25,
+                      fontSize: 22,
 
 
                     ),),

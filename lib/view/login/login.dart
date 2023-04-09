@@ -16,6 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   final _text = TextEditingController();
   final _text2 = TextEditingController();
   bool _validate = false;
+  bool _isObscure = true;
+
 
   @override
   void dispose() {
@@ -68,12 +70,21 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
           child: TextField(
             controller: _text2,
-            obscureText: true,
+            obscureText: _isObscure ? true : false ,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Şifre',
-              suffixText: '*',
-              errorText: _validate ? 'E-posta boş olamaz' : null,
+              errorText: _validate ? 'Şifre boş olamaz' : null,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isObscure ? Icons.visibility_off : Icons.visibility,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure;
+                  });
+                },
+              ),
             ),
           ),
         ),

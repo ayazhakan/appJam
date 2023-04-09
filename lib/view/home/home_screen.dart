@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:akademi_mobil/bottom_navbar.dart';
 import 'package:akademi_mobil/constants/color.dart';
+import 'package:akademi_mobil/view/form/form_screen.dart';
 import 'package:akademi_mobil/view/home/haber_detay_screen.dart';
 import 'package:akademi_mobil/view/profile/profile_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -17,6 +19,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+var showAlert = false;
 class _HomePageState extends State<HomePage> {
   double startDegreeOffset = 180;
   int isSelected = 0;
@@ -29,8 +32,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _loadImage();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => showRatingDialog(context));
+    showAlert == false ? WidgetsBinding.instance.addPostFrameCallback((_) => showRatingDialog(context)) : null;
+    showAlert=true;
   }
 
   void showRatingDialog(BuildContext context) {
@@ -354,37 +357,42 @@ class _HomePageState extends State<HomePage> {
   }
 
   buildDuyurular(int index) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 150,
-        color: index % 4 == 0
-            ? kirmizi
-            : index % 4 == 1
-                ? yesil
-                : index % 4 == 2
-                    ? sari
-                    : mavi,
-        child: Card(
-          elevation: 4.0,
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset("assets/megafon.png", height: 100),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Flexible(
-                  child: Text(
-                duyuruList[index].baslik,
-                textAlign: TextAlign.center,
-              )),
-              SizedBox(
-                width: 10,
-              ),
-            ],
+    return GestureDetector(
+      onTap: (){
+        bottomNavIndex.value = 3;
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          height: 150,
+          color: index % 4 == 0
+              ? kirmizi
+              : index % 4 == 1
+                  ? yesil
+                  : index % 4 == 2
+                      ? sari
+                      : mavi,
+          child: Card(
+            elevation: 4.0,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset("assets/megafon.png", height: 100),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Flexible(
+                    child: Text(
+                  duyuruList[index].baslik,
+                  textAlign: TextAlign.center,
+                )),
+                SizedBox(
+                  width: 10,
+                ),
+              ],
+            ),
           ),
         ),
       ),
